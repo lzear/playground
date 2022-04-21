@@ -1,4 +1,4 @@
-name: Upsert PR comment
+name: On label
 
 on:
   pull_request:
