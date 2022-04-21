@@ -5,11 +5,8 @@ on:
     types: [ labeled ]
 
 jobs:
-  reusable_workflow_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: ./.github/workflows/comments-upsert
-        with:
-          comment_body: Blablabla
-          identifier: Last label set to ${{ github.event.label.name }}
+  comment:
+    uses: ./.github/workflows/comments-upsert.yml
+    with:
+      comment_body: Last label set to ${{ github.event.label.name }}
+      identifier: identifier-label

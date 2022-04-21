@@ -8,11 +8,8 @@ on:
       - synchronize
 
 jobs:
-  reusable_workflow_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: ./.github/workflows/comments-upsert
-        with:
-          comment_body: Blablabla
-          identifier: identifier-blabla
+  comment:
+    uses: ./.github/workflows/comments-upsert.yml
+    with:
+      comment_body: Blablabla
+      identifier: identifier-blabla
