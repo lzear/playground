@@ -8,5 +8,5 @@ jobs:
   comment:
     uses: ./.github/workflows/comments-upsert.yml
     with:
-      comment_body: Blablabla
-      identifier: Last label set to ${{ github.event.label.name }}
+      comment_body: Last label set to ${{ github.event.label.name }}
+      identifier: identifier-label
