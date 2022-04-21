@@ -7,9 +7,8 @@ on:
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
-    environment: production
     steps:
-      - uses: ./.github/workflows/comments-upsert.yml
+      - uses: ./.github/workflows/comments-upsert
         with:
           comment_body: Blablabla
           identifier: Last label set to ${{ github.event.label.name }}
