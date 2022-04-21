@@ -22,7 +22,7 @@ jobs:
         id: find_comment
         with:
           issue-number: ${{ github.event.number }}
-          body-includes: '<!-- COMMENT_IDENTIFIER: ${inputs.identifier} -->'
+          body-includes: '<!-- COMMENT_IDENTIFIER: ${{ inputs.identifier }} -->'
 
       - name: Create Comment
         uses: peter-evans/create-or-update-comment@v1.4.4
@@ -30,8 +30,8 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: >
-            | <!-- COMMENT_IDENTIFIER: ${inputs.identifier} -->
-            | ${{ inputs.comment_body }}
+            <!-- COMMENT_IDENTIFIER: ${{ inputs.identifier }} -->
+            ${{ inputs.comment_body }}
 
       - name: Update Comment
         uses: peter-evans/create-or-update-comment@v1.4.4
@@ -39,8 +39,8 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: >
-            | <!-- COMMENT_IDENTIFIER: ${inputs.identifier} -->
-            | ${{ inputs.comment_body }}
+            <!-- COMMENT_IDENTIFIER: ${{ inputs.identifier }} -->
+            ${{ inputs.comment_body }}
           comment-id: ${{ steps.find_comment.outputs.comment-id }}
           edit-mode: replace
 
