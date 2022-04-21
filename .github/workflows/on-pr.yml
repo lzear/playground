@@ -1,0 +1,18 @@
+name: Upsert PR comment
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: ./.github/workflows/comments-upsert.yml
+        with:
+          comment_body: Blablabla
+          identifier: identifier-blabla
