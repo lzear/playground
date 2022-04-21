@@ -29,7 +29,7 @@ jobs:
         if: success() && github.event.number && steps.find_comment.outputs.comment-id == 0
         with:
           issue-number: ${{ github.event.number }}
-          body: >
+          body: |
             <!-- COMMENT_IDENTIFIER: ${{ inputs.identifier }} -->
             ${{ inputs.comment_body }}
 
@@ -38,7 +38,7 @@ jobs:
         if: success() && github.event.number && steps.find_comment.outputs.comment-id != 0
         with:
           issue-number: ${{ github.event.number }}
-          body: >
+          body: |
             <!-- COMMENT_IDENTIFIER: ${{ inputs.identifier }} -->
             ${{ inputs.comment_body }}
           comment-id: ${{ steps.find_comment.outputs.comment-id }}
